@@ -1,0 +1,126 @@
+
+
+
+{
+  "seo": {
+    "title": "AYSA Foundation - Empowering African Youth",
+    "description": "AYSA Foundation is dedicated to empowering African youth through education, leadership development, and community engagement. Join our mission today.",
+    "keywords": "African youth, empowerment, education, leadership, community development, NGO, foundation, Africa, youth programs",
+    "ogTitle": "AYSA Foundation - Empowering African Youth",
+    "ogDescription": "Building a sustainable future through education, innovation, and community engagement. Join thousands of young leaders shaping Africa's future."
+  },
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "activities": "Activities",
+    "events": "Events",
+    "blog": "Blog",
+    "contact": "Contact",
+    "donate": "Donate",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "admin": "Admin",
+    "profile": "Profile",
+    "search": "Search",
+    "read_more": "Read More",
+    "learn_more": "Learn More",
+    "get_involved": "Get Involved",
+    "join_us": "Join Us",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create"
+  },
+  "home": {
+    "hero_title": "Empowering African Youth",
+    "hero_subtitle": "Building a sustainable future through education, innovation, and community engagement",
+    "hero_cta": "Join Our Mission",
+    "mission_title": "Our Mission",
+    "mission_text": "AYSA Foundation is dedicated to empowering African youth by providing opportunities for education, leadership development, and community engagement.",
+    "vision_title": "Our Vision",
+    "vision_text": "An Africa where every young person has access to the resources, mentorship, and opportunities needed to reach their full potential and contribute to their community's development.",
+    "statistics": "Our Impact",
+    "members": "Members",
+    "projects": "Projects",
+    "communities": "Communities",
+    "countries": "Countries",
+    "latest_articles": "Latest Articles",
+    "featured_activities": "Featured Activities",
+    "partners": "Our Partners",
+    "cta_title": "Ready to Make a Difference?",
+    "cta_text": "Join thousands of young leaders shaping Africa's future.",
+    "newsletter_title": "Stay Informed",
+    "newsletter_text": "Subscribe to our newsletter to receive the latest news and opportunities.",
+    "newsletter_placeholder": "Your email address",
+    "newsletter_button": "Subscribe"
+  },
+  "about": {
+    "title": "About AYSA Foundation",
+    "story": "Our Story",
+    "team": "Our Team",
+    "values": "Our Values"
+  },
+  "activities": {
+    "title": "Our Activities",
+    "no_activities": "No activities available at the moment",
+    "location": "Location",
+    "view_details": "View Details"
+  },
+  "blog": {
+    "title": "Blog & News",
+    "no_articles": "No articles available",
+    "comments": "Comments",
+    "add_comment": "Add Comment",
+    "write_comment": "Write your comment..."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Full Name",
+    "email": "Email Address",
+    "subject": "Subject",
+    "message": "Your Message",
+    "send": "Send Message",
+    "success": "Message sent successfully!",
+    "error": "Error sending message"
+  },
+  "donate": {
+    "title": "Support Our Cause",
+    "subtitle": "Your contribution makes a difference",
+    "one_time": "One-time donation",
+    "monthly": "Monthly donation",
+    "amount": "Amount",
+    "custom": "Custom amount",
+    "donate_button": "Donate Now"
+  },
+  "auth": {
+    "login_title": "Login",
+    "register_title": "Create Account",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "name": "Full Name",
+    "no_account": "Don't have an account?",
+    "has_account": "Already have an account?"
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "manage_articles": "Manage Articles",
+    "manage_activities": "Manage Activities",
+    "manage_users": "Manage Users",
+    "manage_comments": "Moderate Comments",
+    "total_articles": "Total Articles",
+    "total_activities": "Total Activities",
+    "total_users": "Total Users",
+    "total_comments": "Total Comments"
+  },
+  "chat": {
+    "title": "Community Chat",
+    "online": "Online",
+    "type_message": "Type your message...",
+    "send": "Send",
+    "no_messages": "No messages. Be the first to write!"
+  }
+}

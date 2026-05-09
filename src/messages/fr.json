@@ -1,0 +1,124 @@
+
+{
+  "seo": {
+    "title": "Fondation AYSA - Autonomiser la Jeunesse Africaine",
+    "description": "La Fondation AYSA se consacre à l'autonomisation des jeunes Africains par l'éducation, le développement du leadership et l'engagement communautaire. Rejoignez notre mission.",
+    "keywords": "jeunesse africaine, autonomisation, éducation, leadership, développement communautaire, ONG, fondation, Afrique, programmes jeunesse",
+    "ogTitle": "Fondation AYSA - Autonomiser la Jeunesse Africaine",
+    "ogDescription": "Construire un avenir durable grâce à l'éducation, l'innovation et l'engagement communautaire. Rejoignez des milliers de jeunes leaders qui façonnent l'avenir de l'Afrique."
+  },
+  "common": {
+    "home": "Accueil",
+    "about": "À propos",
+    "activities": "Activités",
+    "events": "Événements",
+    "blog": "Blog",
+    "contact": "Contact",
+    "donate": "Faire un don",
+    "login": "Connexion",
+    "register": "Inscription",
+    "logout": "Déconnexion",
+    "admin": "Administration",
+    "profile": "Profil",
+    "search": "Rechercher",
+    "read_more": "Lire plus",
+    "learn_more": "En savoir plus",
+    "get_involved": "S'impliquer",
+    "join_us": "Rejoignez-nous",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer"
+  },
+  "home": {
+    "hero_title": "Autonomiser la Jeunesse Africaine",
+    "hero_subtitle": "Construire un avenir durable grâce à l'éducation, l'innovation et l'engagement communautaire",
+    "hero_cta": "Rejoignez Notre Mission",
+    "mission_title": "Notre Mission",
+    "mission_text": "La Fondation AYSA se consacre à l'autonomisation des jeunes Africains en leur offrant des opportunités d'éducation, de développement du leadership et d'engagement communautaire.",
+    "vision_title": "Notre Vision",
+    "vision_text": "Une Afrique où chaque jeune a accès aux ressources, au mentorat et aux opportunités nécessaires pour réaliser son plein potentiel et contribuer au développement de sa communauté.",
+    "statistics": "Notre Impact",
+    "members": "Membres",
+    "projects": "Projets",
+    "communities": "Communautés",
+    "countries": "Pays",
+    "latest_articles": "Derniers Articles",
+    "featured_activities": "Activités en Vedette",
+    "partners": "Nos Partenaires",
+    "cta_title": "Prêt à Faire la Différence ?",
+    "cta_text": "Rejoignez des milliers de jeunes leaders qui façonnent l'avenir de l'Afrique.",
+    "newsletter_title": "Restez Informé",
+    "newsletter_text": "Abonnez-vous à notre newsletter pour recevoir les dernières actualités et opportunités.",
+    "newsletter_placeholder": "Votre adresse email",
+    "newsletter_button": "S'abonner"
+  },
+  "about": {
+    "title": "À Propos de la Fondation AYSA",
+    "story": "Notre Histoire",
+    "team": "Notre Équipe",
+    "values": "Nos Valeurs"
+  },
+  "activities": {
+    "title": "Nos Activités",
+    "no_activities": "Aucune activité disponible pour le moment",
+    "location": "Lieu",
+    "view_details": "Voir les détails"
+  },
+  "blog": {
+    "title": "Blog & Actualités",
+    "no_articles": "Aucun article disponible",
+    "comments": "Commentaires",
+    "add_comment": "Ajouter un commentaire",
+    "write_comment": "Écrivez votre commentaire..."
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "name": "Nom complet",
+    "email": "Adresse email",
+    "subject": "Sujet",
+    "message": "Votre message",
+    "send": "Envoyer le message",
+    "success": "Message envoyé avec succès !",
+    "error": "Erreur lors de l'envoi du message"
+  },
+  "donate": {
+    "title": "Soutenez Notre Cause",
+    "subtitle": "Votre contribution fait la différence",
+    "one_time": "Don unique",
+    "monthly": "Don mensuel",
+    "amount": "Montant",
+    "custom": "Montant personnalisé",
+    "donate_button": "Faire un don"
+  },
+  "auth": {
+    "login_title": "Connexion",
+    "register_title": "Créer un compte",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirm_password": "Confirmer le mot de passe",
+    "name": "Nom complet",
+    "no_account": "Pas encore de compte ?",
+    "has_account": "Déjà un compte ?"
+  },
+  "admin": {
+    "dashboard": "Tableau de bord",
+    "manage_articles": "Gérer les articles",
+    "manage_activities": "Gérer les activités",
+    "manage_users": "Gérer les utilisateurs",
+    "manage_comments": "Modérer les commentaires",
+    "total_articles": "Total des articles",
+    "total_activities": "Total des activités",
+    "total_users": "Total des utilisateurs",
+    "total_comments": "Total des commentaires"
+  },
+  "chat": {
+    "title": "Chat Communautaire",
+    "online": "En ligne",
+    "type_message": "Écrivez votre message...",
+    "send": "Envoyer",
+    "no_messages": "Aucun message. Soyez le premier à écrire !"
+  }
+}
