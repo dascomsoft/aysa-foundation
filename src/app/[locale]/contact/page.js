@@ -53,12 +53,12 @@ export default function ContactPage() {
             <div className="card text-center">
               <FontAwesomeIcon icon={faPhone} className="text-3xl text-primary-500 mb-3" />
               <h3 className="font-heading font-bold mb-1">Phone</h3>
-              <p className="text-stone-600">+225 00 00 00 00</p>
+              <p className="text-stone-600">+237 00 00 00 00</p>
             </div>
             <div className="card text-center">
               <FontAwesomeIcon icon={faLocationDot} className="text-3xl text-primary-500 mb-3" />
               <h3 className="font-heading font-bold mb-1">Address</h3>
-              <p className="text-stone-600">Abidjan, Côte d'Ivoire</p>
+              <p className="text-stone-600">Yaounde, Cameroon</p>
             </div>
           </div>
 
