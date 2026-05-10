@@ -1,3 +1,6 @@
+
+
+
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
@@ -23,8 +26,16 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['ADMIN', 'MODERATOR', 'MEMBER'],
+    enum: ['SUPER_ADMIN', 'PRESIDENT', 'ADMIN', 'MEMBER', 'VISITOR'],
     default: 'MEMBER',
+  },
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
+  lastLogin: {
+    type: Date,
+    default: null,
   },
   createdAt: {
     type: Date,
@@ -32,4 +43,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.models.User || mongoose.model('User', userSchema);
+const User = mongoose.models.User || mongoose.model('User', userSchema);
+
+export default User;

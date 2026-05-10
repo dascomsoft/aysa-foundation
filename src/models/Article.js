@@ -1,3 +1,4 @@
+
 import mongoose from 'mongoose';
 
 const articleSchema = new mongoose.Schema({
@@ -7,7 +8,7 @@ const articleSchema = new mongoose.Schema({
   },
   content: {
     fr: { type: String, required: true },
-    en: { type: String, required: true },
+    en: { type: String, default: '' },
   },
   image: {
     type: String,
@@ -16,16 +17,17 @@ const articleSchema = new mongoose.Schema({
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true,
+    required: false,
   },
-  comments: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Comment',
-  }],
+  authorName: {
+    type: String,
+    default: 'AYSA Foundation',
+  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-export default mongoose.models.Article || mongoose.model('Article', articleSchema);
+const Article = mongoose.models.Article || mongoose.model('Article', articleSchema);
+export default Article;

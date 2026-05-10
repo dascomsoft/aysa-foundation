@@ -7,17 +7,11 @@ export async function GET() {
   try {
     await connectDB();
     const articles = await Article.find()
-      .populate('author', 'name avatar')
       .sort({ createdAt: -1 })
-      .limit(10);
-    
+      .limit(50);
     return NextResponse.json(articles);
   } catch (error) {
-    console.error('Error fetching articles:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch articles' },
-      { status: 500 }
-    );
+    return NextResponse.json([], { status: 200 });
   }
 }
 
@@ -25,13 +19,18 @@ export async function POST(request) {
   try {
     await connectDB();
     const data = await request.json();
-    
+
+    // Ajouter un authorName par défaut si pas d'auteur
+    if (!data.author && !data.authorName) {
+      data.authorName = 'AYSA Foundation';
+    }
+
     const article = await Article.create(data);
     return NextResponse.json(article, { status: 201 });
   } catch (error) {
-    console.error('Error creating article:', error);
+    console.error('POST article error:', error.message);
     return NextResponse.json(
-      { error: 'Failed to create article' },
+      { error: error.message },
       { status: 500 }
     );
   }

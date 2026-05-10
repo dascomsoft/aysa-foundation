@@ -1,24 +1,13 @@
+
 import mongoose from 'mongoose';
 
 const commentSchema = new mongoose.Schema({
-  articleId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Article',
-    required: true,
-  },
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
-  message: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  type: { type: String, enum: ['article', 'event', 'announcement'], default: 'article' },
+  parentId: { type: mongoose.Schema.Types.ObjectId, required: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  message: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
 });
 
-export default mongoose.models.Comment || mongoose.model('Comment', commentSchema);
+const Comment = mongoose.models.Comment || mongoose.model('Comment', commentSchema);
+export default Comment;

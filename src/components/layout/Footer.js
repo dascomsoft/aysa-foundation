@@ -38,7 +38,7 @@ export default function Footer() {
               />
               <div>
                 <span className="font-heading font-bold text-xl block">AYSA</span>
-                <span className="text-xs text-stone-400">Foundation</span>
+                <span className="text-xs text-stone-400">AFRICA</span>
               </div>
             </div>
             <p className="text-stone-400 mb-6 leading-relaxed">
