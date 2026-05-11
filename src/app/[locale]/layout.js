@@ -1,37 +1,4 @@
 
-// import { NextIntlClientProvider } from 'next-intl';
-// import { getMessages } from 'next-intl/server';
-// import { notFound } from 'next/navigation';
-// import Navbar from '@/components/layout/Navbar';
-// import Footer from '@/components/layout/Footer';
-// import '@/styles/globals.css';
-
-// export default async function LocaleLayout({ children, params }) {
-//   const { locale } = await params;
-
-//   let messages;
-//   try {
-//     messages = await getMessages();
-//   } catch (error) {
-//     notFound();
-//   }
-
-//   return (
-//     <html lang={locale}>
-//       <body className="min-h-screen bg-stone-200">
-//         <NextIntlClientProvider messages={messages}>
-//           <Navbar />
-//           <main className="min-h-screen pt-16">
-//             {children}
-//           </main>
-//           <Footer />
-//         </NextIntlClientProvider>
-//       </body>
-//     </html>
-//   );
-// }
-
-
 
 
 
@@ -52,7 +19,7 @@ export async function generateMetadata({ params }) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   return {
-    title: seo.title || 'AYSA Foundation',
+    title: seo.title || 'AYSA AFRICA',
     description: seo.description || 'Empowering African Youth',
     keywords: seo.keywords || '',
     alternates: {
@@ -63,16 +30,16 @@ export async function generateMetadata({ params }) {
       },
     },
     openGraph: {
-      title: seo.ogTitle || 'AYSA Foundation',
+      title: seo.ogTitle || 'AYSA AFRICA',
       description: seo.ogDescription || '',
       url: `${siteUrl}/${locale}`,
-      siteName: 'AYSA Foundation',
+      siteName: 'AYSA AFRICA',
       locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: seo.ogTitle || 'AYSA Foundation',
+      title: seo.ogTitle || 'AYSA AFRICA',
       description: seo.ogDescription || '',
     },
     robots: {
@@ -102,7 +69,7 @@ export default async function LocaleLayout({ children, params }) {
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
-              name: 'AYSA Foundation',
+              name: 'AYSA AFRICA',
               url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
               description: locale === 'fr' 
                 ? 'Fondation pour l\'autonomisation de la jeunesse africaine'

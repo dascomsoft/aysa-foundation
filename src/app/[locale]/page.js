@@ -99,7 +99,7 @@ export default function HomePage() {
               transition={{ duration: 0.8 }}
             >
               <span className="inline-block px-5 py-2 bg-accent-500 text-white rounded-full text-sm font-semibold mb-6 shadow-lg">
-                AYSA Foundation - Since 2020
+                AYSA AFRICA - Since 2020
               </span>
             </motion.div>
             

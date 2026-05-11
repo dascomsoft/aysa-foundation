@@ -13,7 +13,8 @@ import {
   faEye, 
   faEyeSlash,
   faSignInAlt,
-  faUserPlus
+  faUserPlus,
+  faSpinner
 } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -36,6 +37,16 @@ export default function AuthPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const getDashboardRoute = (role) => {
+    switch (role) {
+      case 'SUPER_ADMIN': return '/admin/super-admin';
+      case 'PRESIDENT': return '/admin/super-admin';
+      case 'ADMIN': return '/admin/executive';
+      case 'MEMBER': return '/admin/volunteer';
+      default: return '/';
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     
@@ -53,37 +64,19 @@ export default function AuthPage() {
 
       const { token, user } = response.data;
 
-      // Sauvegarder le token
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
 
       toast.success(`Bienvenue ${user.name} !`);
 
-      // Redirection selon le rôle
-      setTimeout(() => {
-        switch (user.role) {
-          case 'SUPER_ADMIN':
-            router.push('/admin/super-admin');
-            break;
-          case 'PRESIDENT':
-            router.push('/admin/super-admin');
-            break;
-          case 'ADMIN':
-            router.push('/admin/executive');
-            break;
-          case 'MEMBER':
-            router.push('/admin/volunteer');
-            break;
-          default:
-            router.push('/');
-        }
-      }, 1000);
+      // Redirection IMMÉDIATE (sans setTimeout)
+      const route = getDashboardRoute(user.role);
+      router.push(route);
 
     } catch (error) {
       console.error('Login error:', error);
       const message = error.response?.data?.error || 'Erreur de connexion';
       toast.error(message);
-    } finally {
       setLoading(false);
     }
   };
@@ -116,22 +109,18 @@ export default function AuthPage() {
 
       const { token, user } = response.data;
 
-      // Sauvegarder le token
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
 
-      toast.success(`Bienvenue ${user.name} ! Votre compte a été créé.`);
+      toast.success(`Bienvenue ${user.name} !`);
 
-      // Redirection vers le dashboard volunteer (MEMBER)
-      setTimeout(() => {
-        router.push('/admin/volunteer');
-      }, 1000);
+      const route = getDashboardRoute(user.role);
+      router.push(route);
 
     } catch (error) {
       console.error('Register error:', error);
       const message = error.response?.data?.error || 'Erreur d\'inscription';
       toast.error(message);
-    } finally {
       setLoading(false);
     }
   };
@@ -160,118 +149,55 @@ export default function AuthPage() {
         {/* Formulaire */}
         <div className="card p-8">
           <form onSubmit={isLogin ? handleLogin : handleRegister} className="space-y-4">
-            {/* Nom (register seulement) */}
             {!isLogin && (
               <div>
-                <label className="block text-sm font-medium text-stone-700 mb-2">
-                  {t('auth.name')}
-                </label>
+                <label className="block text-sm font-medium text-stone-700 mb-2">{t('auth.name')}</label>
                 <div className="relative">
-                  <FontAwesomeIcon 
-                    icon={faUser} 
-                    className="absolute left-4 top-3.5 text-stone-400" 
-                  />
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="input-field pl-10"
-                    placeholder="Votre nom complet"
-                    required
-                  />
+                  <FontAwesomeIcon icon={faUser} className="absolute left-4 top-3.5 text-stone-400" />
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} className="input-field pl-10" placeholder="Votre nom complet" required disabled={loading} />
                 </div>
               </div>
             )}
 
-            {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-stone-700 mb-2">
-                {t('auth.email')}
-              </label>
+              <label className="block text-sm font-medium text-stone-700 mb-2">{t('auth.email')}</label>
               <div className="relative">
-                <FontAwesomeIcon 
-                  icon={faEnvelope} 
-                  className="absolute left-4 top-3.5 text-stone-400" 
-                />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="input-field pl-10"
-                  placeholder="votre@email.com"
-                  required
-                />
+                <FontAwesomeIcon icon={faEnvelope} className="absolute left-4 top-3.5 text-stone-400" />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} className="input-field pl-10" placeholder="votre@email.com" required disabled={loading} />
               </div>
             </div>
 
-            {/* Mot de passe */}
             <div>
-              <label className="block text-sm font-medium text-stone-700 mb-2">
-                {t('auth.password')}
-              </label>
+              <label className="block text-sm font-medium text-stone-700 mb-2">{t('auth.password')}</label>
               <div className="relative">
-                <FontAwesomeIcon 
-                  icon={faLock} 
-                  className="absolute left-4 top-3.5 text-stone-400" 
-                />
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="input-field pl-10 pr-10"
-                  placeholder="••••••••"
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-3.5 text-stone-400 hover:text-stone-600"
-                >
+                <FontAwesomeIcon icon={faLock} className="absolute left-4 top-3.5 text-stone-400" />
+                <input type={showPassword ? 'text' : 'password'} name="password" value={formData.password} onChange={handleChange} className="input-field pl-10 pr-10" placeholder="••••••••" required disabled={loading} />
+                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-3.5 text-stone-400 hover:text-stone-600" disabled={loading}>
                   <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
                 </button>
               </div>
             </div>
 
-            {/* Confirmation mot de passe (register seulement) */}
             {!isLogin && (
               <div>
-                <label className="block text-sm font-medium text-stone-700 mb-2">
-                  {t('auth.confirm_password')}
-                </label>
+                <label className="block text-sm font-medium text-stone-700 mb-2">{t('auth.confirm_password')}</label>
                 <div className="relative">
-                  <FontAwesomeIcon 
-                    icon={faLock} 
-                    className="absolute left-4 top-3.5 text-stone-400" 
-                  />
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    className="input-field pl-10"
-                    placeholder="••••••••"
-                    required
-                  />
+                  <FontAwesomeIcon icon={faLock} className="absolute left-4 top-3.5 text-stone-400" />
+                  <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} className="input-field pl-10" placeholder="••••••••" required disabled={loading} />
                 </div>
               </div>
             )}
 
-            {/* Bouton Submit */}
+            {/* Bouton avec loader TRÈS VISIBLE */}
             <button
               type="submit"
               disabled={loading}
-              className="btn-primary w-full py-3 text-lg mt-6"
+              className="btn-primary w-full py-4 text-lg mt-6 relative overflow-hidden"
             >
               {loading ? (
-                <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                  </svg>
-                  Chargement...
+                <span className="flex items-center justify-center gap-3">
+                  <FontAwesomeIcon icon={faSpinner} className="animate-spin text-xl" />
+                  <span>Connexion en cours...</span>
                 </span>
               ) : (
                 <span className="flex items-center justify-center gap-2">
@@ -280,9 +206,15 @@ export default function AuthPage() {
                 </span>
               )}
             </button>
+
+            {/* Message pendant le chargement */}
+            {loading && (
+              <p className="text-center text-sm text-stone-400 animate-pulse">
+                Redirection vers votre espace...
+              </p>
+            )}
           </form>
 
-          {/* Switch Login/Register */}
           <div className="text-center mt-6 pt-6 border-t border-stone-200">
             <p className="text-stone-500 text-sm">
               {isLogin ? t('auth.no_account') : t('auth.has_account')}{' '}
@@ -292,19 +224,11 @@ export default function AuthPage() {
                   setFormData({ name: '', email: '', password: '', confirmPassword: '' });
                 }}
                 className="text-primary-600 hover:text-primary-700 font-semibold"
+                disabled={loading}
               >
                 {isLogin ? t('common.register') : t('common.login')}
               </button>
             </p>
-          </div>
-        </div>
-
-        {/* Info rôles */}
-        <div className="mt-6 p-4 bg-stone-100 rounded-xl text-sm text-stone-500">
-          <p className="font-medium text-stone-700 mb-2">Comptes de test :</p>
-          <div className="space-y-1">
-            <p>🔑 <strong>Super Admin :</strong> admin@aysafoundation.org</p>
-            <p>🔑 <strong>Mot de passe :</strong> Admin123!</p>
           </div>
         </div>
       </motion.div>

@@ -43,7 +43,7 @@ export default function Navbar() {
     if (userData) {
       try { setUser(JSON.parse(userData)); } catch (e) { setUser(null); }
     }
-  }, []);
+  }, [pathname]);
 
   const navLinks = [
     { href: '/', label: t('common.home'), icon: null },
