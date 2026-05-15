@@ -2,6 +2,7 @@
 import { NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import Comment from '@/models/Comment';
+import User from '@/models/User'; // <-- IMPORTER User pour l'enregistrer
 
 export async function GET(request) {
   try {
@@ -15,10 +16,12 @@ export async function GET(request) {
     if (parentId) query.parentId = parentId;
 
     const comments = await Comment.find(query)
-      .populate('userId', 'name avatar')
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 })
+      .lean(); // <-- Évite l'erreur de populate
+    
     return NextResponse.json(comments);
   } catch (error) {
+    console.error('GET comments error:', error.message);
     return NextResponse.json([], { status: 200 });
   }
 }
@@ -27,10 +30,17 @@ export async function POST(request) {
   try {
     await connectDB();
     const data = await request.json();
-    const comment = await Comment.create(data);
-    const populated = await comment.populate('userId', 'name avatar');
-    return NextResponse.json(populated, { status: 201 });
+    
+    const comment = await Comment.create({
+      type: data.type || 'article',
+      parentId: data.parentId,
+      userId: data.userId || null,
+      message: data.message,
+    });
+    
+    return NextResponse.json(comment, { status: 201 });
   } catch (error) {
+    console.error('POST comment error:', error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

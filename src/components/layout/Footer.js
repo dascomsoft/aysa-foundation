@@ -87,11 +87,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-stone-400">
                 <FontAwesomeIcon icon={faEnvelope} className="text-primary-400 w-5" />
-                <span>contact@aysafoundation.org</span>
+                <span>Aysaafrica@gmail.com</span>
               </li>
               <li className="flex items-center gap-3 text-stone-400">
                 <FontAwesomeIcon icon={faPhone} className="text-primary-400 w-5" />
-                <span>+237 00 00 00 00</span>
+                <span>+237 6 86 09 08 63 /+237 6 53 77 21 25</span>
               </li>
               <li className="flex items-center gap-3 text-stone-400">
                 <FontAwesomeIcon icon={faLocationDot} className="text-primary-400 w-5" />
