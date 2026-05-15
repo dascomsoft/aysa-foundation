@@ -1,9 +1,4 @@
 
-
-
-
-
-
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -12,7 +7,7 @@ import Footer from '@/components/layout/Footer';
 import '@/styles/globals.css';
 
 export async function generateMetadata({ params }) {
-  const { locale } = await params;
+  const { locale } = params;
   const messages = await getMessages();
   
   const seo = messages?.seo || {};
@@ -50,7 +45,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function LocaleLayout({ children, params }) {
-  const { locale } = await params;
+  const { locale } = params;
 
   let messages;
   try {
