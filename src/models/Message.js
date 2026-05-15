@@ -1,19 +1,12 @@
+
 import mongoose from 'mongoose';
 
 const messageSchema = new mongoose.Schema({
-  sender: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
-  message: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  sender: { type: String, required: true },
+  senderId: { type: String, default: '' },
+  message: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
 });
 
-export default mongoose.models.Message || mongoose.model('Message', messageSchema);
+const Message = mongoose.models.Message || mongoose.model('Message', messageSchema);
+export default Message;

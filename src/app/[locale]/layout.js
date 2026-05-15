@@ -72,8 +72,8 @@ export default async function LocaleLayout({ children, params }) {
               name: 'AYSA AFRICA',
               url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
               description: locale === 'fr' 
-                ? 'Fondation pour l\'autonomisation de la jeunesse africaine'
-                : 'Foundation for empowering African youth',
+                ? 'Organisation pour l\'autonomisation de la jeunesse africaine'
+                : 'Organization for empowering African youth',
             }),
           }}
         />
